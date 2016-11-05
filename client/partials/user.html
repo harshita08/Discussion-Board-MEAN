@@ -1,0 +1,14 @@
+<div ng-controller="userProfileCtrl as UC">
+	
+	<p>
+		<a href="#/dashboard">Dashboard</a>
+		<a ng-click="UC.logout()">Logout</a>
+	</p>
+
+	<h4>Username: {{ UC.userName }}</h4>
+	<p><b>Posted.....</b></p>
+	<p>{{ UC.topic_count }} Topic</p>
+	<p>{{ UC.post_count }} Post</p>
+	<p>{{ UC.comment_count }} Comment</p>
+
+</div>

@@ -1,0 +1,47 @@
+<div ng-controller="userCtrl as UC">
+	
+	<h4>Welcome {{ UC.user.name }}
+	<a style="padding-left: 300px;" ng-click="UC.logout()">Logout</a>
+	</h4>
+
+	<div>
+		<table>
+			<tr>
+				<th>Category</th>
+				<th>Topic</th>
+				<th>User Name</th>
+				<th>Posts</th>
+			</tr>
+			<tr ng-repeat="topics in UC.allTopics">
+				<td> {{ topics.category }}</td>
+				<td> <a href="#/topic/{{topics._id}}">{{ topics.topic }}</a></td>
+				<td> 
+					<a href="#/user/{{topics._user}}">{{topics._user}}</a>
+				</td>
+				<td> {{ topics.post_count }}</td>
+			</tr>
+		</table>
+	</div>
+
+	<div>
+	<form ng-submit = "UC.addTopic()">
+		<h4>Topic:
+			<input type="text" ng-model="UC.newTopic.topic">
+		</h4>
+		<h4>Description:
+			<input type="text" ng-model="UC.newTopic.description">
+		</h4>
+		<h4>Category:
+			<select ng-model="UC.newTopic.category">
+				<option>HTML</option>
+				<option>JavaScript</option>
+				<option>Python</option>
+				<option>MEAN</option>
+				<option>Ruby</option>
+			</select>
+		</h4>
+		<input type="submit" value="Submit">
+	</form>
+	<div>
+
+</div>

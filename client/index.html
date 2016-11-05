@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Discussion Board</title>
+
+	<style type="text/css">
+		table{
+			width: 500px;
+			border: 1px solid black;
+		}
+		td{
+			border: 1px solid black;
+		}
+	</style>
+
+	<script src="angular/angular.js" charset="utf-8"></script>
+	<script src="angular-route/angular-route.js" charset="utf-8"></script>
+	<script src="assets/main.js" charset="utf-8"></script>
+
+    <script src="./assets/factories/userFactory.js" charset="utf-8"></script>
+    <script src="./assets/factories/topicFactory.js" charset="utf-8"></script>
+
+    <script src="./assets/controllers/topicController.js" charset="utf-8"></script>
+    <script src="./assets/controllers/userController.js" charset="utf-8"></script>
+    <script src="./assets/controllers/userProfileController.js" charset="utf-8"></script>
+
+</head>
+<body>
+
+	<h2>Tech Discussion Board</h2>
+
+	<div ng-view=""></div>
+
+</body>
+</html>

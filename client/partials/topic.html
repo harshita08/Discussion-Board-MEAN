@@ -1,0 +1,47 @@
+<div ng-controller="topicCtrl as TC">
+
+	<h4>Hi {{ TC.user.name }} 
+		<a style="padding-left: 300px;" href="#/dashboard">Dashboard</a>
+		<a ng-click="TC.logout()">Logout</a>
+	</h4>
+
+	<p><a href="#/user/{{TC.oneTopic._user}}">{{ TC.oneTopic._user }}</a> posted a topic: </p>
+	<h4> {{ TC.oneTopic.topic }} </h4>
+	<p> Description: {{ TC.oneTopic.description }} </p>
+
+	<form ng-submit="TC.addPost(TC.oneTopic._id)">
+		<p><b>Post your answer here..</b></p>
+
+		<textarea rows='3' cols='80' ng-model="TC.newPost.post">
+		</textarea>
+
+		<input type="submit" value="Post">
+	</form>
+	
+	<div ng-repeat="post in TC.allPosts">
+		<hr>
+		<p>
+			<a href="#/user/{{post._user}}">{{ post._user }}</a>: 
+			{{ post.post }}
+			<p ng-if="TC.user.name !== post._user">
+				{{post.upVotes}}
+				<button ng-click="TC.upVote(post._id)">/\</button>
+				{{post.downVotes}}
+				<button ng-click="TC.downVote(post._id)">\/</button>
+			</p>
+		</p>
+
+		<form ng-submit="TC.addComment(post._id)">
+			<p>Comment: <!-- <textarea rows='2' cols='65' ng-model="TC.newComment.comment">
+			</textarea> -->
+			<textarea rows='2' cols='65' ng-model="TC.newComment[$index]">
+			</textarea>
+			<input type="submit" value="Comment">
+			</p>
+			
+		</form>
+
+	</div>
+	
+
+</div>
